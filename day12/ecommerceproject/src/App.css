@@ -1,0 +1,121 @@
+/* --- App Layout (Sticky Footer) --- */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Header & Footer --- */
+.header,
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer {
+  margin-top: auto; /* Pushes the footer to the bottom */
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+/* --- Main Body Content --- */
+.body {
+  flex: 1; /* Allows the body to grow and fill remaining space */
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto; /* Centers the content */
+  padding: 0 20px;
+}
+
+/* --- Search Bar --- */
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px 0 0 8px; /* Rounded left corners */
+  outline: none;
+}
+
+.search input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.search button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0 8px 8px 0; /* Rounded right corners */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search button:hover {
+  background-color: #0056b3;
+}
+
+/* --- Products Grid --- */
+.products {
+  display: grid;
+  /* Creates a responsive grid:
+     - auto-fill: As many columns as can fit.
+     - minmax(280px, 1fr): Each column is at least 280px wide and
+       can grow to fill the space (1fr).
+  */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px; /* Space between the product cards */
+}
+
+/* --- Individual Product Card --- */
+.product {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Ensures image respects the border-radius */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.product img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Prevents image from stretching */
+  display: block;
+}
+
+.product h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 15px;
+  color: #222;
+}
+
+.product h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #007bff;
+  margin: 0 15px 15px;
+  margin-top: auto; /* Pushes price to the bottom of the card */
+}
